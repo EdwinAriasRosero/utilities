@@ -40,6 +40,11 @@ npm i @utilities-ea/capacitor -D
 1. npx cap sync
 1. npm run android
 
+# final
+
+"deploy": "npm run build && npx cap sync && npm run android"
+
+
 # Validations
 
 check capacitor.config.ts and configure webDir with dist path
