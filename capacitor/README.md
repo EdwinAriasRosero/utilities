@@ -34,10 +34,15 @@ npm i @utilities-ea/capacitor -D
 1. Android 34
 
 
-# Compiation
+# Compilation
 
 1. ng build
 1. npx cap sync
+1. npm run android
+
+# Validations
+
+check capacitor.config.ts and configure webDir with dist path
 
 
 
