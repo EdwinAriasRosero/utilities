@@ -20,7 +20,7 @@ https://capacitorjs.com/solution/angular
 
 ## Installation
 
-npm i @utilities-ea/capacitor -D
+npm i @ea-utilities/capacitor -D
 
 ## package script
 
