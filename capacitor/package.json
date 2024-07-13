@@ -1,6 +1,6 @@
 {
-  "name": "@utilities-ea/capacitor",
-  "version": "1.0.13",
+  "name": "@ea-utilities/capacitor",
+  "version": "1.0.1",
   "main": "index",
   "bin": {
     "eaAndroidBuilder": "index"
