@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+//https://medium.com/nerd-for-tech/what-bin-does-in-package-json-931d691b1e33
+
+
+const { exec } = require('child_process');
+const path = require('path');
+const buildPath = path.join(__dirname, 'scripts', 'build.ps1');
+const dockerPath = path.join(__dirname, 'scripts', 'dockerfile');
+const params = process.argv.slice(2);
+const command = `powershell.exe -File ${buildPath} -path ${params[0]} -containerName ${params[1] ?? ''} -dockerPath ${dockerPath}`;
+
+console.log('****************', command);
+
+exec(command, (error, stdout, stderr) => {
+    if (error) {
+        console.error(`Error: ${error}`);
+        return;
+    }
+    if (stderr) {
+        console.error(`Error: ${stderr}`);
+        return;
+    }
+    console.log(stdout);
+});
