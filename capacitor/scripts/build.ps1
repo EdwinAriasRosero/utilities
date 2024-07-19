@@ -60,3 +60,5 @@ function Build {
 }
 
 Build -path $path -containerName $containerName -dockerPath $dockerPath
+
+# https://developer.android.com/build/building-cmdline

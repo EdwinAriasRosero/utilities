@@ -1,112 +1,45 @@
 # Capacitor/Docker
 
-Add utilities for compiling a capacitor project with docker (You can skip all android sdk configuration)
+Add utilities for compiling a Capacitor project (on Windows OS + Android + debug mode) using Docker. We skip Android SDK configuration.
 
-## Capacitor oficial documentation
-https://capacitorjs.com/solution/angular
+[Official Capacitor documentation](https://capacitorjs.com/solution/angular)
 
-# Steps
-> ng add @capacitor/angular
+## Dependencies
 
-> ng build --prod
+- [Docker](https://www.docker.com/)
 
-> npm i @capacitor/ios @capacitor/android
+### Docker Image Specification
 
-> npx cap init
-
-> npx cap add android
-
-> npx cap add ios
+1. Ubuntu 20.04
+2. Node 18
+3. Android 34
 
 ## Installation
 
+Run in your terminal
+
+```bash
+ng add @capacitor/angular
+npm i @capacitor/android
+npx cap add android
 npm i @ea-utilities/capacitor -D
-
-## package script
-
-"android": "eaAndroidBuilder C:\\DV\\capacitor-app capacitorApp"
-
-
-# Docker specification
-
-1. Ubuntu 20.04
-1. node 18
-1. Android 34
-
-
-# Compilation
-
-1. ng build
-1. npx cap sync
-1. npm run android
-
-# final
-
-"deploy": "npm run build && npx cap sync && npm run android"
-
-
-# Validations
-
-check capacitor.config.ts and configure webDir with dist path
-
-
-
-
-
-<!-- 
-# Demo
-
-https://stackblitz.com/edit/stackblitz-starters-coddjt?file=src%2Fmain.ts
-
-# Installation
-> npm i @control-ea/spinner
-
-# Instructions
-
-## Modules
-```ts
-import { SpinnerComponent } from '@control-ea/spinner';
 ```
 
-## Use
+## Package Scripts
+Add the following scripts to your package.json file. Replace `{root application path}` with your project's root path:
 
-Add in `app.component.html` the tag `<ea-spinner color="{optional}" />`
-
-> Note: only add this tag once.
-
-```hmtl app.component.ts
-<ea-spinner color="red" />
-```
-
-In components now you can inject `SpinnerService` and use its methods `show(message?)` or `hide()`
-
-```ts
-constructor(private spinnerService: SpinnerService) {
-
-    this.spinnerService.show("Saving data...");
-
-    timer(1000).subscribe(_ => {
-        this.spinnerService.show("Data saved...");
-    })
-
-    timer(2000).subscribe(_ => {
-        this.spinnerService.show("Loading data...");
-    })
-
-    timer(3000).subscribe(_ => {
-        this.spinnerService.hide();
-    });
-
+```json
+{
+    "scripts": {
+        "android": "eaAndroidBuilder {root application path} capacitorApp",
+        "deploy": "npm run build && npx cap sync && npm run android"
+    }
 }
 ```
 
-> Note: color and message inputs are optional
-> Note: You can send optional content in `<ea-spinner> <img src="img.gif"> </ea-spinner>` if you want to customize spinner, services you can continue using in same way
+## Usage
+Run `npm run deploy` in your terminal to generate a debug APK of your application.
 
-## Result
-
-![Spinner](https://github.com/EdwinAriasRosero/controls/blob/main/libs/spinner/assets/spinner.PNG?raw=true)
-
-## Custom content
-
-![Custom spinner](https://github.com/EdwinAriasRosero/controls/blob/main/libs/spinner/assets/spinner-custom.PNG?raw=true) -->
+## Validations
+1. If the APK isn't generated on the first attempt, try running the command again. If issues persist, review your configuration.
+1. Sometimes npx cap add android may not function as expected. In such cases, try running npx cap init first or refer to the Capacitor documentation for troubleshooting.

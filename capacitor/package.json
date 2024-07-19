@@ -1,9 +1,12 @@
 {
   "name": "@ea-utilities/capacitor",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "main": "index",
   "bin": {
     "eaAndroidBuilder": "index"
+  },
+  "scripts": {
+    "publish": "npm publish ."
   },
   "keywords": [
     "capacitor",
@@ -13,7 +16,8 @@
     "android",
     "ios",
     "angular",
-    "android-sdk"
+    "android-sdk",
+    "windows"
   ],
   "author": "Edwin Arias",
   "license": "ISC",
